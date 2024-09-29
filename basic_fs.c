@@ -74,6 +74,32 @@ void deleteFiles(int size){
   printf("File missing :(\n");
 }
 
+void updateFile(int size){
+        char filename[10];
+        int breaker = 0;
+      
+        printf("Enter filename to update its data : ");
+        scanf("%s",filename);
+
+        for (int i=0; i<size; i++){
+                    if (strcmp(filesystem[i].filename, filename)==0){
+                                          printf("Filename : %s \n Data : %s \n", filesystem[i].filename, filesystem[i].data);
+                                          printf("Enter the new data : ");
+                                          scanf("%s",filename);
+                                          strcpy(filesystem[i].data,filename);
+                                          printf("Data updated ! \n");
+                                          breaker = 1;
+                                          return;
+    }
+  } 
+  if (breaker == 0){
+            printf("Failed to update the data.");
+  }
+}
+
+
+
+
 int main(){
 
   int size;
@@ -89,9 +115,9 @@ int main(){
        init(size);
        int choice = 1;
   
-        while (choice >= 1 && choice <= 3){
+        while (choice >= 1 && choice <= 4){
               
-              printf("Enter 1 to add || 2 to read || 3 to delete : ");
+              printf("Enter 1 to add || 2 to read || 3 to delete || 4 to update : ");
               scanf("%d",&choice);
               if (choice == 1){
                         createFiles(size);
@@ -102,7 +128,10 @@ int main(){
               } else if (choice == 3){
                           deleteFiles(size);
                           continue;
-             } else {
+              } else if (choice == 4){
+                          updateFile(size);
+                          continue;
+              } else {
                           printf("invalid key !");
                           exit(0); 
             }
