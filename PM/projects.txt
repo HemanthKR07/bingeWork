@@ -1,0 +1,42 @@
+Beginner-Level Problems:
+Basic Process Creation:
+
+1. Write a program that creates a new child process using fork(). The parent should print its PID, while the child prints its own. Ensure both processes run independently.
+Extend the problem to make the child process print numbers from 1 to 5 while the parent process waits for the child to finish using wait().
+Process Synchronization with sleep() and wait()
+
+2. Create two processes using fork(). The parent process should sleep for 2 seconds and then print "Parent done," while the child process should print "Child done" after the parent finishes. Use wait() to ensure the correct order of execution.
+Simulating Process State Transitions:
+
+3. Create a simulation that models process states (Ready, Running, Waiting, Terminated). Implement a simple scheduler that transitions processes between these states based on simulated events (e.g., time slices, I/O operations).
+Process Communication Using Pipes:
+
+4. Implement a producer-consumer system using pipes, where the parent (producer) generates random numbers and sends them to the child (consumer) through a pipe. The child reads and prints the numbers.
+Intermediate-Level Problems:
+Round-Robin Process Scheduling Simulation:
+
+5. Simulate round-robin scheduling for a set of processes with different CPU burst times. Implement a fixed time quantum and simulate context switching between processes.
+Extend this by adding priority scheduling where each process is assigned a priority, and the scheduler chooses the next process based on both priority and round-robin.
+Multithreaded Matrix Multiplication with pthread:
+
+6. Use POSIX threads (pthread) to parallelize matrix multiplication. Divide the matrix into smaller chunks and assign each thread a task to compute a specific portion of the product. Synchronize threads using semaphores or mutexes to prevent race conditions.
+Process Scheduling with I/O Burst:
+
+7. Simulate scheduling with both CPU-bound and I/O-bound processes. Use a combination of CPU and I/O burst times to model realistic process behavior. Implement scheduling algorithms such as Shortest Job First (SJF) or First Come First Serve (FCFS) to simulate the process scheduling.
+Complex Projects:
+Custom Process Scheduler:
+
+8. Design and implement a custom process scheduler in an OS kernel simulation. Implement different scheduling algorithms (e.g., FCFS, Round-Robin, Priority Scheduling, Multilevel Queue). Simulate process arrivals, CPU bursts, and I/O operations to test the performance of each algorithm.
+Add features like process aging, dynamic priority adjustments, and starvation prevention mechanisms.
+Virtual Memory Management System:
+
+9. Extend your process management system by incorporating virtual memory management. Implement page replacement algorithms like FIFO, LRU (Least Recently Used), and Optimal Replacement in a simulation. Track page faults and analyze memory access patterns.
+Process Migration in a Distributed System:
+
+10. Implement process migration between two machines in a distributed environment. Design a system where processes can be moved from one machine to another, preserving their state, memory, and open file descriptors. Test the migration process under different network conditions (e.g., high latency, packet loss).
+Multilevel Feedback Queue Scheduling:
+
+11. Implement a multilevel feedback queue scheduler with multiple queues for processes of varying priorities. Simulate a situation where high-priority processes are given more CPU time and low-priority processes are gradually moved to higher queues based on their behavior (e.g., CPU vs. I/O bound). Analyze the fairness and efficiency of your scheduler.
+Process Resource Management and Deadlock Detection:
+
+12. Simulate a system with multiple processes requesting resources (e.g., CPU, memory, I/O devices) in various quantities. Implement a deadlock detection algorithm (e.g., Banker's Algorithm) to identify deadlocks and provide a method for recovery or avoidance. The project should handle resource allocation and detect when the system enters an unsafe state.

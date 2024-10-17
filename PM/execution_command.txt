@@ -1,0 +1,9 @@
+execl("/bin/ls", "ls", "-l", NULL);
+
+execlp("ls", "ls", "-l", NULL);
+
+char *args[] = {"/bin/ls", "-l", NULL};
+execv("/bin/ls", args);
+
+char *args[] = {"ls", "-l", NULL};
+execvp("ls", args);

@@ -1,0 +1,91 @@
+1. Problem: Basic Fork and Exec Example
+Write a C program that:
+
+Uses fork() to create a child process.
+In the child process, use execl() to replace the process with the ls command.
+The parent process should wait for the child to finish.
+Hint: You can use execl("/bin/ls", "ls", NULL); to execute the ls command.
+
+2. Problem: Multiple Child Processes with Exec
+Write a C program that:
+
+Creates two child processes using fork().
+In the first child, use execlp() to run the date command (which prints the current date and time).
+In the second child, use execlp() to run the whoami command (which prints the current user).
+The parent process waits for both child processes to complete.
+Hint: You will use execlp("date", "date", NULL); and execlp("whoami", "whoami", NULL);.
+
+3. Problem: Execute a Program Using execv()
+Write a C program that:
+
+Uses fork() to create a child process.
+In the child process, use execv() to execute the /bin/echo command with arguments that print "Hello from execv".
+The parent process should print "Parent process continues".
+Hint: With execv(), you pass the arguments as an array of strings:
+
+c
+Copy code
+char *args[] = {"/bin/echo", "Hello from execv", NULL};
+execv(args[0], args);
+4. Problem: Passing Arguments to Executed Programs
+Write a C program that:
+
+Prompts the user to enter a shell command (like ls, date, whoami, etc.).
+Uses fork() to create a child process.
+In the child process, use execlp() to execute the command entered by the user.
+The parent process waits for the child to finish.
+Hint: Use execlp(command, command, NULL); where command is the input from the user.
+
+5. Problem: Executing a Program with execv()
+Write a C program that:
+
+Accepts a command and its arguments from the command line when running the program.
+Uses fork() to create a child process.
+In the child process, use execv() to run the command with the provided arguments.
+The parent process waits for the child to finish.
+Hint: You need to pass argc and argv to execv() like this:
+
+c
+Copy code
+execv(argv[1], &argv[1]);
+This will allow you to run the command from the command line, e.g., ./your_program /bin/ls -l.
+
+6. Problem: Simple Shell Simulation
+Write a simple shell program that:
+
+Continuously prompts the user for a command.
+Uses fork() to create a new child process for each command.
+In the child process, use execlp() to execute the command entered by the user.
+The parent process should wait for the child process to finish before prompting the user for another command.
+If the user types exit, the program should terminate.
+Hint: Use a loop to repeatedly prompt for commands, and use execlp() to run them.
+
+7. Problem: Error Handling with Exec
+Write a C program that:
+
+Uses fork() to create a child process.
+In the child process, use execlp() to run a command that does not exist (e.g., invalid_command).
+Ensure that if the execlp() call fails, the program prints an error message.
+The parent process should wait for the child to finish and print "Parent process finished."
+Hint: Use perror() to print an error if execlp() fails:
+
+c
+Copy code
+if (execlp("invalid_command", "invalid_command", NULL) == -1) {
+    perror("exec");
+}
+8. Problem: Fork Bomb Simulation (Advanced)
+Write a C program that:
+
+Demonstrates how rapidly creating processes can overload a system (simulate a "fork bomb").
+Be careful with this as it can crash your system if not controlled.
+Warning: A fork bomb is dangerous and should only be done in a controlled environment with limits on process creation. You can do something like:
+
+c
+Copy code
+while (1) {
+    fork();
+}
+HEY FROM PROGRAM...
+HEY FROM PROGRAM...
+HEY FROM PROGRAM...
